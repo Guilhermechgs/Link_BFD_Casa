@@ -1,5 +1,5 @@
 let readlineSync = require("readline-sync");
-const iniciar = ["Ver estoque", "Fazer pdedido"]
+const iniciar = ["Ver estoque", "Fazer pedido"]
 
 let estoque = [
     {nome : "Playstation", quantidade : 500, preco : 100},
