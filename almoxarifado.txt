@@ -1,4 +1,0 @@
-receber e mostrar informações de estoque ( nome preço quantidade) ( devem ser alterqadas por input ususario)
-readline question para nome preço quantidade
-if else para cada questao
-for para listar cada produto
