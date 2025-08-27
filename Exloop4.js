@@ -12,8 +12,7 @@ function vendatotal(produtos){
     return receitaTotal;
 }
 
-const total = vendatotal(produtos);
 produtos.forEach(item => {
     console.log(`O produto ${item.nome} vendeu ${item.preco} reais por ${item.vendas} unidades`)
 })
-console.log(`A receita total de vendas é: R$${total}`);
+console.log(`A receita total de vendas é: R$${vendatotal(produtos)}`);
