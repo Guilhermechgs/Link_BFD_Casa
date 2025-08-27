@@ -11,7 +11,15 @@ function vendatotal(produtos){
     }
     return receitaTotal;
 }
-produtos.forEach(item => {
-    console.log(`O produto ${item.nome} vendeu ${item.preco} reais por ${item.vendas} unidades`)
-})
+
+function vendauniaria(produtos){
+    return produtos.map(item => 
+       `o produto ${item.nome} vendeu ${item.preco * item.vendas} em ${item.vendas} vendas!` 
+    )
+}
+
+vendauniaria(produtos).forEach(msg => {
+    console.log(msg)
+});
+
 console.log(`A receita total de vendas é: R$${vendatotal(produtos)}`);
