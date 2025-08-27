@@ -12,13 +12,13 @@ function vendatotal(produtos){
     return receitaTotal;
 }
 
-function vendauniaria(produtos){
+function vendaunitaria(produtos){
     return produtos.map(item => 
        `o produto ${item.nome} vendeu ${item.preco * item.vendas} em ${item.vendas} vendas!` 
     )
 }
 
-vendauniaria(produtos).forEach(msg => {
+vendaunitaria(produtos).forEach(msg => {
     console.log(msg)
 });
 
