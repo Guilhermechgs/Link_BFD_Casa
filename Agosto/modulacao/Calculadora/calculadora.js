@@ -20,7 +20,7 @@ try {
         resultado = multiplicacao(num1, num2);
         break;
       case "/":
-        resultado = divisao(num1, num2); // This can throw an error
+        resultado = divisao(num1, num2);
         break;
       default:
         throw new Error("Operador invalido. Por favor, use +, -, *, ou /.");
