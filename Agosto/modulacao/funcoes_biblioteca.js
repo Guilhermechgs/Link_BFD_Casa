@@ -21,3 +21,17 @@ export function emprestarLivro(livros, nomeDoLivro) {
         console.log(`\nDesculpe, não foi possível encontrar o livro "${nomeDoLivro}".`);
     }
 }
+
+export function DevolverLivro(livros, nomeDoLivro) {
+    const livroEncontrado = livros.find(livro => livro.nome.toLowerCase() === nomeDoLivro.toLowerCase());
+    if (livroEncontrado) {
+        if (!livroEncontrado.disponivel) {
+            livroEncontrado.disponivel = true;
+            console.log(`\nO livro "${livroEncontrado.nome}" foi devolvido com sucesso!`);
+        } else {
+            console.log(`\nDesculpe, o livro "${livroEncontrado.nome}" já está devolvido.`);
+        }
+    } else {
+        console.log(`\nDesculpe, não foi possível encontrar o livro "${nomeDoLivro}".`);
+    }
+}
