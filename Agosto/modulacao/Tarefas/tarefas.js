@@ -12,8 +12,10 @@ switch (iniciar) {
         case 1:
             let novaTarefa = readlineSync.question("Digite a tarefa: ");
             funcoes.adicionar_tarefa(novaTarefa);
+            console.log(funcoes.mostrar_tarefas())
             break;
             case 2:
                 funcoes.remover_tarefa();
+                console.log(funcoes.mostrar_tarefas())
                 break;
 }
