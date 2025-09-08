@@ -19,8 +19,12 @@ exibir(){
     this.velocidade -= valor
     console.log(`O ${this.modelo} freiou ${this.velocidade}kmh !`)
  }
+ mostrarVelocidade(){
+    console.log(`A velocidade do ${this.modelo} é ${this.velocidade}Khm!`)
+ }
 }
 const carro = new Carro ("Porche911", "porche", "amarelo", "2012", 0, )
 carro.exibir()
 carro.acelerar(110)
 carro.frear(10)
+carro.mostrarVelocidade()
