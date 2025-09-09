@@ -8,7 +8,7 @@ class Carro{
     }
 
 exibir(){
-    console.log(`O carro ${this.modelo} é um ${this.marca} de cor ${this.cor} ano ${this.ano} \n sua é velocidade ${this.velocidade}`)
+    console.log(`O carro ${this.modelo} é um ${this.marca} de cor ${this.cor} ano ${this.ano}.\nSua é velocidade ${this.velocidade}Kmh!`)
  }
 
  acelerar(valor){
