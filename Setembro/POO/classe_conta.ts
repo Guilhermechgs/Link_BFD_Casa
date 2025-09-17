@@ -9,3 +9,6 @@ class conta{
         console.log(this.saldo)
     }
 }
+
+const gui = new conta(100, 200)
+gui.ver_saldo()

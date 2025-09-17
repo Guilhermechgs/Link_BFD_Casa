@@ -1,22 +1,15 @@
-class conta_bancaria{
-    constructor(nome,saldo){
-        this.nome = nome 
-        this.saldo = saldo
+class conta {
+    nome;
+    saldo;
+    constructor(nome, saldo) {
+        this.nome = nome;
+        this.saldo = saldo;
     }
-    ver_saldo(){
-        console.log("----Saldo atual----")
-        console.log(`----${this.saldo}----`)
-        console.log("--------------------")
+    ver_saldo() {
+        console.log(this.saldo);
     }
-    debitar_saldo(valor){
-        this.saldo -= valor
-        console.log("---Debitação concluída---")
-        console.log(`Seu novo saldo é\n---${this.saldo}R$----`)
-        console.log(`-------------------------`)
-    }
-
 }
-
-const bradesco = new conta_bancaria ("Gui",123456789)
-bradesco.ver_saldo()
-bradesco.debitar_saldo(1)
+const gui = new conta(100, 200);
+gui.ver_saldo();
+export {};
+//# sourceMappingURL=classe_conta.js.map
