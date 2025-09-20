@@ -1,4 +1,5 @@
 import { Autor } from "./autor";
+import { Usuario } from "./usuario";
 
 export class Livro {
   public autores: Autor[] = [];
@@ -9,10 +10,12 @@ export class Livro {
   ) {}
 
   public disponivel: boolean = true;
+  public emprestadoPor: Usuario | null = null;
 
-  emprestar() {
+  emprestar(usuario: Usuario): boolean {
     if (this.disponivel) {
       this.disponivel = false;
+      this.emprestadoPor = usuario;
       return true;
     }
     return false;
@@ -20,5 +23,6 @@ export class Livro {
 
   devolver() {
     this.disponivel = true;
+    this.emprestadoPor = null;
   }
 }
