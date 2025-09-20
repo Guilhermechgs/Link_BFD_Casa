@@ -7,5 +7,4 @@ export class Livro {
     public nome: string,
     public ano: number
   ) {}
-
 }
