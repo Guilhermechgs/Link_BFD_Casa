@@ -11,6 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/readline-sync": "^1.4.8",
     "tsx": "^4.20.5"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
