@@ -8,4 +8,5 @@ const outroLivvro = new Livro("Cozinha facil", 2025);
 autorGuilherme.adicionarLivro(meuLivro);
 autorGuilherme.adicionarLivro(outroLivvro);
 
-console.log(autorGuilherme);
+const nomesDosLivros = autorGuilherme.livros.map(livro => livro.nome).join(', ');
+console.log(`O autor ${autorGuilherme.nome} escreveu os livros: ${nomesDosLivros}`);
