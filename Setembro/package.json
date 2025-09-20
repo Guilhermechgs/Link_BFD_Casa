@@ -1,0 +1,13 @@
+{
+  "name": "setembro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./Entidades/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
