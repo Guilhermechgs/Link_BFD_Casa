@@ -1,4 +1,4 @@
-import { Livro } from "./livro";
+import type { Livro } from "./livro";
 
 export class Autor {
   public livros: Livro[] = [];
@@ -10,3 +10,5 @@ export class Autor {
     this.livros.push(livro);
   }
 }
+
+export const autorGuilherme = new Autor("Guilherme");

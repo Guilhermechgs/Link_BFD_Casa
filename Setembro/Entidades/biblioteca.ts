@@ -1,8 +1,11 @@
-import { Livro } from "./livro";
+import { Livro, livroCozinha, livroTS } from "./livro";
 import * as readlineSync from 'readline-sync';
 import { Usuario } from "./usuario";
 
-export function listarLivros(biblioteca: Livro[]) {
+export const biblioteca: Livro[] = [livroTS, livroCozinha];
+
+
+export function listarLivros() {
     console.log("\n--- Livros na Biblioteca ---");
     biblioteca.forEach(livro => {
         const status = livro.disponivel ? "Disponível" : `Emprestado para: ${livro.emprestadoPor?.nome}`;
@@ -11,7 +14,7 @@ export function listarLivros(biblioteca: Livro[]) {
     console.log("--------------------------\n");
 }
 
-export function emprestarLivro(biblioteca: Livro[], usuario: Usuario) {
+export function emprestarLivro(usuario: Usuario) {
     const nomesLivrosDisponiveis = biblioteca
         .filter(livro => livro.disponivel)
         .map(livro => livro.nome);

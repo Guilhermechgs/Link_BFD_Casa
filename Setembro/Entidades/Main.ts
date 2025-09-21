@@ -1,23 +1,7 @@
-import { Livro } from "./livro";
-import { Autor } from "./autor";
-import { Usuario } from "./usuario";
+import { Usuario, usuarios } from "./usuario";
 import * as readlineSync from 'readline-sync';
 
 import { listarLivros, emprestarLivro, devolverLivro } from "./biblioteca";
-
-const autorGuilherme = new Autor("Guilherme");
-
-const livroTS = new Livro("Aprendendo TypeScript", 2025);
-const livroCozinha = new Livro("Cozinha Facil", 2024);
-
-autorGuilherme.adicionarLivro(livroTS);
-autorGuilherme.adicionarLivro(livroCozinha);
-
-const biblioteca: Livro[] = [livroTS, livroCozinha,];
-
-const usuarios: Usuario[] = [
-    new Usuario("Guiga")
-];
 
 console.log("Bem-vindo ao sistema da biblioteca!\n");
 
@@ -39,10 +23,10 @@ while (true) {
 
     switch (index) {
         case 0:
-            listarLivros(biblioteca);
+            listarLivros();
             break;
         case 1:
-            emprestarLivro(biblioteca, usuarioAtual);
+            emprestarLivro(usuarioAtual);
             break;
         case 2:
             devolverLivro(usuarioAtual);

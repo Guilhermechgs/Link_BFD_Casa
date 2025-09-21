@@ -1,5 +1,5 @@
-import { Autor } from "./autor";
 import { Usuario } from "./usuario";
+import { Autor, autorGuilherme } from "./autor";
 
 export class Livro {
   public autores: Autor[] = [];
@@ -26,3 +26,9 @@ export class Livro {
     this.emprestadoPor = null;
   }
 }
+
+export const livroTS = new Livro("Aprendendo TypeScript", 2025);
+export const livroCozinha = new Livro("Cozinha Facil", 2024);
+
+autorGuilherme.adicionarLivro(livroTS);
+autorGuilherme.adicionarLivro(livroCozinha);

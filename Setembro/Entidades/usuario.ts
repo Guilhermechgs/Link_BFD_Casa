@@ -23,3 +23,7 @@ export class Usuario {
         return false;
     }
 }
+
+export const usuarios: Usuario[] = [
+    new Usuario("Guiga")
+];
