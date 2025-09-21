@@ -53,3 +53,26 @@ export function devolverLivro(usuario: Usuario) {
         console.log("\nOperacao cancelada.");
     }
 }
+
+const opcoes = ["Listar Livros", "Emprestar Livro", "Devolver Livro"];
+
+export function iniciarLoop(usuario: Usuario) {
+    while (true) {
+        const index = readlineSync.keyInSelect(opcoes, "O que voce gostaria de fazer?", { cancel: "Sair" });
+
+        switch (index) {
+            case 0:
+                listarLivros();
+                break;
+            case 1:
+                emprestarLivro(usuario);
+                break;
+            case 2:
+                devolverLivro(usuario);
+                break;
+            default:
+                console.log("\nObrigado por usar a biblioteca. Ate logo!");
+                process.exit();
+        }
+    }
+}

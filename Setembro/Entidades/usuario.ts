@@ -1,4 +1,5 @@
 import { Livro } from "./livro";
+import * as readlineSync from 'readline-sync';
 
 export class Usuario {
     public livrosEmprestados: Livro[] = [];
@@ -27,3 +28,14 @@ export class Usuario {
 export const usuarios: Usuario[] = [
     new Usuario("Guiga")
 ];
+
+export function identificarUsuario(): Usuario | null {
+    const nomesUsuarios = usuarios.map(u => u.nome);
+    const indexUsuario = readlineSync.keyInSelect(nomesUsuarios, "Quem esta usando o sistema?");
+
+    if (indexUsuario === -1) {
+        return null;
+    }
+
+    return usuarios[indexUsuario];
+}
