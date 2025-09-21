@@ -39,3 +39,12 @@ export function identificarUsuario(): Usuario | null {
 
     return usuarios[indexUsuario];
 }
+
+export function autenticarOuSair(): Usuario {
+    const usuario = identificarUsuario();
+    if (!usuario) {
+        console.log("\nOperacao cancelada. Ate logo!");
+        process.exit();
+    }
+    return usuario;
+}

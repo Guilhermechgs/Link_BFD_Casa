@@ -2,77 +2,83 @@ import { Livro, livroCozinha, livroTS } from "./livro";
 import * as readlineSync from 'readline-sync';
 import { Usuario } from "./usuario";
 
-export const biblioteca: Livro[] = [livroTS, livroCozinha];
+class Biblioteca {
+    private livros: Livro[] = [];
+    private opcoes = ["Listar Livros", "Emprestar Livro", "Devolver Livro"];
 
-
-export function listarLivros() {
-    console.log("\n--- Livros na Biblioteca ---");
-    biblioteca.forEach(livro => {
-        const status = livro.disponivel ? "Disponível" : `Emprestado para: ${livro.emprestadoPor?.nome}`;
-        console.log(`- ${livro.nome} [${status}]`);
-    });
-    console.log("--------------------------\n");
-}
-
-export function emprestarLivro(usuario: Usuario) {
-    const nomesLivrosDisponiveis = biblioteca
-        .filter(livro => livro.disponivel)
-        .map(livro => livro.nome);
-
-    if (nomesLivrosDisponiveis.length === 0) {
-        console.log("\nNao ha livros disponiveis para emprestimo.");
-        return;
+    constructor() {
+        this.livros.push(livroTS, livroCozinha);
     }
 
-    const index = readlineSync.keyInSelect(nomesLivrosDisponiveis, "Qual livro voce quer emprestar?");
-    if (index !== -1) {
-        const livroEscolhido = biblioteca.find(livro => livro.nome === nomesLivrosDisponiveis[index]);
-        if (livroEscolhido && usuario.pegarEmprestado(livroEscolhido)) {
-            console.log(`\nVoce emprestou "${livroEscolhido.nome}" com sucesso!`);
+    listarLivros() {
+        console.log("\n--- Livros na Biblioteca ---");
+        this.livros.forEach(livro => {
+            const status = livro.disponivel ? "Disponível" : `Emprestado para: ${livro.emprestadoPor?.nome}`;
+            console.log(`- ${livro.nome} [${status}]`);
+        });
+        console.log("--------------------------\n");
+    }
+
+    emprestarLivro(usuario: Usuario) {
+        const nomesLivrosDisponiveis = this.livros
+            .filter(livro => livro.disponivel)
+            .map(livro => livro.nome);
+
+        if (nomesLivrosDisponiveis.length === 0) {
+            console.log("\nNao ha livros disponiveis para emprestimo.");
+            return;
         }
-    } else {
-        console.log("\nOperacao cancelada.");
-    }
-}
 
-export function devolverLivro(usuario: Usuario) {
-    const nomesLivrosEmprestados = usuario.livrosEmprestados.map(livro => livro.nome);
-
-    if (nomesLivrosEmprestados.length === 0) {
-        console.log("\nNao ha livros emprestados para devolver.");
-        return;
-    }
-
-    const index = readlineSync.keyInSelect(nomesLivrosEmprestados, "Qual livro voce quer devolver?");
-    if (index !== -1) {
-        const livroEscolhido = usuario.livrosEmprestados[index];
-        if (livroEscolhido && usuario.devolverLivro(livroEscolhido)) {
-            console.log(`\nVoce devolveu "${livroEscolhido.nome}" com sucesso!`);
-        }
-    } else {
-        console.log("\nOperacao cancelada.");
-    }
-}
-
-const opcoes = ["Listar Livros", "Emprestar Livro", "Devolver Livro"];
-
-export function iniciarLoop(usuario: Usuario) {
-    while (true) {
-        const index = readlineSync.keyInSelect(opcoes, "O que voce gostaria de fazer?", { cancel: "Sair" });
-
-        switch (index) {
-            case 0:
-                listarLivros();
-                break;
-            case 1:
-                emprestarLivro(usuario);
-                break;
-            case 2:
-                devolverLivro(usuario);
-                break;
-            default:
-                console.log("\nObrigado por usar a biblioteca. Ate logo!");
-                process.exit();
+        const index = readlineSync.keyInSelect(nomesLivrosDisponiveis, "Qual livro voce quer emprestar?");
+        if (index !== -1) {
+            const livroEscolhido = this.livros.find(livro => livro.nome === nomesLivrosDisponiveis[index]);
+            if (livroEscolhido && usuario.pegarEmprestado(livroEscolhido)) {
+                console.log(`\nVoce emprestou "${livroEscolhido.nome}" com sucesso!`);
+            }
+        } else {
+            console.log("\nOperacao cancelada.");
         }
     }
+
+    devolverLivro(usuario: Usuario) {
+        const nomesLivrosEmprestados = usuario.livrosEmprestados.map(livro => livro.nome);
+
+        if (nomesLivrosEmprestados.length === 0) {
+            console.log("\nNao ha livros emprestados para devolver.");
+            return;
+        }
+
+        const index = readlineSync.keyInSelect(nomesLivrosEmprestados, "Qual livro voce quer devolver?");
+        if (index !== -1) {
+            const livroEscolhido = usuario.livrosEmprestados[index];
+            if (livroEscolhido && usuario.devolverLivro(livroEscolhido)) {
+                console.log(`\nVoce devolveu "${livroEscolhido.nome}" com sucesso!`);
+            }
+        } else {
+            console.log("\nOperacao cancelada.");
+        }
+    }
+
+    iniciarLoop(usuario: Usuario) {
+        while (true) {
+            const index = readlineSync.keyInSelect(this.opcoes, "O que voce gostaria de fazer?", { cancel: "Sair" });
+
+            switch (index) {
+                case 0:
+                    this.listarLivros();
+                    break;
+                case 1:
+                    this.emprestarLivro(usuario);
+                    break;
+                case 2:
+                    this.devolverLivro(usuario);
+                    break;
+                default:
+                    console.log("\nObrigado por usar a biblioteca. Ate logo!");
+                    process.exit();
+            }
+        }
+    }
 }
+
+export const biblioteca = new Biblioteca();
