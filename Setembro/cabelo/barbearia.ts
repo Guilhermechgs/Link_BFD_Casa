@@ -22,7 +22,7 @@ export class Barbearia {
     }
 
     realizarCorte(cliente: Cliente, servico: Corte, funcionario: Funcionario) {
-        console.log(`\nIniciando atendimento para ${cliente.nome} com ${funcionario.nome}...`);
+        console.log(`\nIniciando atendimento para ${cliente.nome} idade ${cliente.idade} com ${funcionario.nome} matricula ${funcionario.matricula}...`);
 
         let precoFinal = servico.preco;
 
