@@ -27,9 +27,9 @@ export class Barbearia {
         let precoFinal = servico.preco;
 
         if (cliente.descontoDisponivel()) {
-            const desconto = servico.preco * 0.10;
+            const desconto = servico.preco * 0.30;
             precoFinal -= desconto;
-            console.log(`Aplicado desconto de 10% (R$${desconto.toFixed(2)}) para cliente menor de 18 anos.`);
+            console.log(`Aplicado desconto de 30% (R$${desconto.toFixed(2)}) para cliente menor de 18 anos.`);
         }
 
         console.log(`Serviço: ${servico.nome} - Preço Final: R$${precoFinal.toFixed(2)}`);

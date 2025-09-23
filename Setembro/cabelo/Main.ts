@@ -8,6 +8,7 @@ console.log("--- Bem-vindo à Barbearia do Gui! ---");
 const minhaBarbearia = new Barbearia("Barbearia do Gui");
 
 minhaBarbearia.adicionarFuncionario(Gui_CLT);
+
 minhaBarbearia.adicionarCliente(Gui_velho);
 minhaBarbearia.adicionarCliente(Gui_novo);
 
