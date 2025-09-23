@@ -1,10 +1,10 @@
 class livro{
     nome: string
-    autor: string
+    autor: string []
 
     constructor(nome: string, autor: string){
         this.nome = nome
-        this.autor = autor
+        this.autor = []
     }
 }
 
