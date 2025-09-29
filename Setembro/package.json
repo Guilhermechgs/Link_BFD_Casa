@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx ./Entidades/main.ts",
-    "start:barbearia": "tsx ./cabelo/Main.ts"
+    "start:barbearia": "tsx ./cabelo/Main.ts",
+    "index:mercado": "tsx ./mercado/index.ts"
   },
   "keywords": [],
   "author": "",

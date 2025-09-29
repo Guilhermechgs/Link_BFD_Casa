@@ -1,6 +1,7 @@
-class Produto {
+export class Produto {
     constructor(
+        public nome: string,
         public preco : number,
-        public quantidade : number
+        public quantidade : number // Estoque
     ){}
 }
