@@ -2,7 +2,6 @@ import { Pedido, ItemPedido } from "./Pedido.js";
 import { Produto } from "./Produto.js";
 import { TipoPagamento } from "./Pagamento.js";
 
-// 1. Criando alguns produtos para o estoque do supermercado
 const arroz = new Produto("Arroz Tipo 1", 25.50, 100);
 const feijao = new Produto("Feijão Carioca", 8.90, 150);
 const macarrao = new Produto("Macarrão Espaguete", 4.20, 200);
@@ -12,15 +11,12 @@ console.log(`${arroz.nome}: ${arroz.quantidade}`);
 console.log(`${feijao.nome}: ${feijao.quantidade}`);
 console.log(`${macarrao.nome}: ${macarrao.quantidade}\n`);
 
-// 2. Criando um novo pedido
 const meuPedido = new Pedido();
 
-// 3. Adicionando itens ao pedido
 meuPedido.adicionarItem(new ItemPedido(arroz, 2));
 meuPedido.adicionarItem(new ItemPedido(feijao, 3));
 meuPedido.adicionarItem(new ItemPedido(macarrao, 5));
 
-// 4. Finalizando o pedido com uma forma de pagamento
 meuPedido.finalizarPedido(TipoPagamento.Cartao);
 
 console.log("\n--- Estoque Final ---");
