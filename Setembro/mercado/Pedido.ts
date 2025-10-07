@@ -32,7 +32,7 @@ export class Pedido {
         console.log("\n--- Resumo do Pedido ---");
         this.itens.forEach(item => {
             console.log(`- ${item.produto.nome}: ${item.quantidade} x R$${item.produto.preco.toFixed(2)} = R$${(item.quantidade * item.produto.preco).toFixed(2)}`);
-            item.produto.quantidade -= item.quantidade; // Deduz do estoque
+            item.produto.quantidade -= item.quantidade;
         });
         console.log(`\nTotal do Pedido: R$${total.toFixed(2)}`);
         console.log(`Forma de Pagamento: ${this.tipoPagamento}`);
