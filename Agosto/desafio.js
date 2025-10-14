@@ -8,9 +8,11 @@ let estoque = [
 ]
 
 function mostrarEstoque(){
+
     estoque.forEach(item => {
         console.log(`Nome: ${item.nome}, Quantidade: ${item.quantidade}, Preço: ${item.preco}`);
     });
+
 }
 
 indexiniciar = readlineSync.keyInSelect(iniciar, "Como posso ajudar?")
@@ -33,3 +35,4 @@ if(indexiniciar == 0){
         console.log("\nProduto não encontrado no estoque.");
     }
 }
+

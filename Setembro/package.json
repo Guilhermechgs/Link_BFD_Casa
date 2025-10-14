@@ -1,0 +1,23 @@
+{
+  "name": "setembro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./Entidades/main.ts",
+    "start:barbearia": "tsx ./cabelo/Main.ts",
+    "index:mercado": "tsx ./mercado/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/readline-sync": "^1.4.8",
+    "tsx": "^4.20.5"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
