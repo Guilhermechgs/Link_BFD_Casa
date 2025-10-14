@@ -1,1 +1,0 @@
-let alunos = [{nome:"sarah",nota:[9,8,10]},{nome:"guilherme",nota:[6,8,7]},{nome:"saulo",nota:[10,5,9]}]
