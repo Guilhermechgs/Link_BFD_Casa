@@ -1,23 +1,17 @@
-import type { Product } from "../Entidades/modelo.produto.js";
+import {db} from "../Config/Database.js"
+import { Produto } from "../Entidades/produto.js";
 
-export class ProductRepository {
-  private products: Product[] = [];
-  private idCounter = 1;
+export class Produto_Repositorio {
+  constructor(private db: any) {}
 
-  create(product: Omit<Product, "id">): Product {
-    const newProduct: Product = {
-      id: this.idCounter++,
-      ...product,
-    };
-    this.products.push(newProduct);
-    return newProduct;
-  }
-
-  findAll(): Product[] {
-    return this.products;
-  }
-
-  findByMinPrice(minPrice: number): Product[] {
-    return this.products.filter(p => p.price > minPrice);
+  async insert(produto: Produto): Promise<void> {
+    try {
+      const query = 'INSERT INTO Produto (nome, valor) VALUES (?, ?)';
+      await this.db.execute(query, [produto.nome, produto.valor]);
+      console.log('Produto inserido com sucesso!');
+    } catch (error) {
+      console.error('Erro ao inserir o produto:', error);
+      throw error;
     }
+  }
 }

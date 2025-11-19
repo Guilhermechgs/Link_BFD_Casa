@@ -1,10 +1,11 @@
-import { Router } from "express";
-import { ProductController } from "../controller/controller.produto.js";
+import { Router } from 'express';
+import { Produto_Repositorio } from '../repositorio/produto.repositorio.js';
+import { ProdutoController } from '../controller/controller.produto.js';
+import { db } from '../Config/Database.js';
 
 const router = Router();
 
-router.post("/products", ProductController.create);
-router.get("/products", ProductController.listAll);
-router.get("/products/filter", ProductController.filterByPrice);
+const produtoRepo = new Produto_Repositorio(db);
+const produtoController = new ProdutoController(produtoRepo);
 
-export default router;
+router.post('/Produto', (req, res) => produtoController.create(req, res));
