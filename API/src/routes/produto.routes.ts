@@ -8,4 +8,6 @@ const router = Router();
 const produtoRepo = new Produto_Repositorio(db);
 const produtoController = new ProdutoController(produtoRepo);
 
-router.post('/Produto', (req, res) => produtoController.create(req, res));
+router.post('/produtos', (req, res) => produtoController.create(req, res));
+
+export default router;
