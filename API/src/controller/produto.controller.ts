@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { db } from './Database.js';
+import { db } from '../Config/Database.js';
 import type { RowDataPacket } from 'mysql2';
 
 // Define a type for our Product for type safety

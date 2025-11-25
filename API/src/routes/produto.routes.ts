@@ -1,13 +1,12 @@
 import { Router } from 'express';
-import { Produto_Repositorio } from '../repositorio/produto.repositorio.js';
-import { ProdutoController } from '../controller/controller.produto.js';
-import { db } from '../Config/Database.js';
+import { createProduto, getProdutos } from '../controller/produto.controller.js';
 
 const router = Router();
 
-const produtoRepo = new Produto_Repositorio(db);
-const produtoController = new ProdutoController(produtoRepo);
+// Route to get all products
+router.get('/', getProdutos);
 
-router.post('/produtos', (req, res) => produtoController.create(req, res));
+// Route to create a new product
+router.post('/', createProduto);
 
-export default router;
+export { router as produtoRouter };
