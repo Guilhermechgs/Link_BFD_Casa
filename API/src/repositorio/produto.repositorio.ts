@@ -24,4 +24,18 @@ export class Produto_Repositorio {
   }
  }
 
+async Atualizardb(nomeAntigo: string, novoNome: string, novoValor: number){
+  try{
+    const sql = "UPDATE Produto SET NOME = ?, VALOR = ? WHERE NOME = ?";
+    const valores = [novoNome, novoValor, nomeAntigo];
+
+    const [rows] = await db.execute(sql, valores);
+    return rows;
+
+  } catch(error){
+    console.log(error);
+  }
+}
+
+
 }

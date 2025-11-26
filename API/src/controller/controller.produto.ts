@@ -26,3 +26,16 @@ export async function retornarProduto(req: Request, resp: Response){
     return resp.send(error)
   }
 }
+
+export async function AtualizarProduto(req: Request, resp: Response){
+  try{
+    const { nomeAntigo, nome, preco } = req.body;
+
+    const resultado = await repos.Atualizardb(nomeAntigo, nome, preco);
+
+    return resp.json(resultado);
+    
+  } catch(error: unknown) {
+    return resp.status(500).send(error);
+  }
+}
