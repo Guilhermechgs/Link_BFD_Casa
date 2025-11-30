@@ -37,5 +37,15 @@ async Atualizardb(nomeAntigo: string, novoNome: string, novoValor: number){
   }
 }
 
+async Deletardb(nome: string){
+  try {
+    const sql = "DELETE FROM Produto WHERE NOME = ?";
+    const [result] = await db.execute(sql, [nome]);
+    return result;
+  } catch (error) {
+    console.log("Erro ao deletar produto:", error);
+    throw error;
+  }
+}
 
 }

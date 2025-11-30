@@ -39,3 +39,23 @@ export async function AtualizarProduto(req: Request, resp: Response){
     return resp.status(500).send(error);
   }
 }
+
+export async function DeletarProduto(req: Request, resp: Response){
+  try {
+    const { nome } = req.params;
+
+    if (!nome) {
+      return resp.status(400).send({ error: "O nome do produto é obrigatório." });
+    }
+
+    const result: any = await repos.Deletardb(nome);
+
+    if (result.affectedRows > 0) {
+      return resp.status(200).send("Produto deletado com sucesso.");
+    } else {
+      return resp.status(404).send("Produto não encontrado.");
+    }
+  } catch (error: unknown) {
+    return resp.status(500).send({ error: "Erro ao deletar produto." });
+  }
+}

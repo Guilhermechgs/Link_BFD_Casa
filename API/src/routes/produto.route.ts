@@ -1,15 +1,15 @@
 import { Router } from 'express';
-import { inserirProduto, retornarProduto } from '../controller/controller.produto.js';
+import { AtualizarProduto, DeletarProduto, inserirProduto, retornarProduto } from '../controller/controller.produto.js';
 import { Produto } from '../Entidades/produto.js';
 
 const router = Router();
 
-router.post("/inserirproduto", (req, res) => {
-    const {nome, preco} = req.body
-    const produto = new Produto(nome, preco)
-    res.send("Produto cadastrado com sucesso.")
-})
+router.post("/inserirproduto", inserirProduto);
 
-router.get("/retornarProduto", retornarProduto)
+router.get("/retornarProduto", retornarProduto);
+
+router.put("/atualizarproduto", AtualizarProduto);
+
+router.delete("/deletarproduto/:nome", DeletarProduto);
 
 export default router;
